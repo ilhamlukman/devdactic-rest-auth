@@ -26,6 +26,26 @@ gulp.task('sass', function(done) {
     .on('end', done);
 });
 
+gulp.task('add-proxy', function() {
+  return replace({
+    regex: "http://64.137.249.103:8080/api",
+    replacement: "http://localhost:8101/api",
+    paths: replaceFiles,
+    recursive: false,
+    silent: false,
+  });
+});
+
+gulp.task('remove-proxy', function() {
+  return replace({
+    regex: "http://localhost:8101/api",
+    replacement: "http://64.137.249.103:8080/api",
+    paths: replaceFiles,
+    recursive: false,
+    silent: false,
+  });
+});
+
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
 });
