@@ -29,7 +29,7 @@ gulp.task('sass', function(done) {
 gulp.task('add-proxy', function() {
   return replace({
     regex: "http://64.137.249.103:8080/api",
-    replacement: "http://localhost:8101/api",
+    replacement: "http://localhost:8100/api",
     paths: replaceFiles,
     recursive: false,
     silent: false,
@@ -38,7 +38,7 @@ gulp.task('add-proxy', function() {
 
 gulp.task('remove-proxy', function() {
   return replace({
-    regex: "http://localhost:8101/api",
+    regex: "http://localhost:8100/api",
     replacement: "http://64.137.249.103:8080/api",
     paths: replaceFiles,
     recursive: false,
